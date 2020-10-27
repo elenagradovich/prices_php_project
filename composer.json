@@ -1,0 +1,16 @@
+{
+    "name": "elenagradovich/php-project1",
+    "type": "project",
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.15"
+    },
+    "require-dev": {
+        "phpoffice/phpspreadsheet": "^1.15"
+    },
+    "authors": [
+        {
+            "name": "Elena Gradovich",
+            "email": "volozhinskaya@gmail.com"
+        }
+    ]
+}
