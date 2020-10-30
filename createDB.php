@@ -1,5 +1,6 @@
 <?php
-    function createDB($conn) {
+    function createDB() {
+        global $conn;
         // Созданние базы данных
         $sql = "CREATE DATABASE IF NOT EXISTS Prices;";
         if (!mysqli_query($conn, $sql)) {

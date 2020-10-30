@@ -1,6 +1,9 @@
 <?php
     // Подключение к MySQL
+    global $conn;
+    
     function connect () {
+        global $conn;
         $servername = "localhost"; // локалхост
         $username = "root"; // имя пользователя
         $password = "mysqlpwd"; // пароль если существует
@@ -9,11 +12,12 @@
         if (!$conn) {
            die("Ошибка подключения: " . mysqli_connect_error());
         }
-        return $conn;
     }
     
+    
     // Закрыть подключение
-    function closeConnection ($conn) {
+    function closeConnection () {
+        global $conn;
         if($conn) mysqli_close($conn);
     }
 ?>

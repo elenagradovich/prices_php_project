@@ -1,5 +1,6 @@
 <?php
-    function getQueryResult($conn, $query) {
+    function getQueryResult($query) {
+        global $conn;
         if($result = mysqli_query($conn, $query)) {
             $resultArr = mysqli_fetch_array($result);
             return $resultArr[0];

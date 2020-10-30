@@ -1,11 +1,16 @@
 <?php
-    function createTable ($conn) {
+    function createTable () {
+        global $conn;
         
         $sql = "USE Prices";
-        mysqli_query($conn, $sql);
+        if (!mysqli_query($conn, $sql)) {
+            echo "Ошибка БД не выбрана: " . mysqli_error($conn);
+        };
 
         $sql = "DROP TABLE IF EXISTS PriceList;";
-        mysqli_query($conn, $sql);
+        if (!mysqli_query($conn, $sql)) {
+            echo "Ошибка удаления БД: " . mysqli_error($conn);
+        };
 
 
         $sql = "CREATE TABLE PriceList(

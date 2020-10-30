@@ -1,7 +1,8 @@
 <?php
 
     //PhpSpreadsheet
-    function insertData ($conn, $arr, $itemNum) {
+    function insertData ($arr, $itemNum) {
+        global $conn;
         // подготавливаемый запрос, первая стадия: подготовка \
         if (!($stmt = mysqli_prepare($conn, "INSERT INTO PriceList(
                 ORDER_NUMBER, PRODUCT_NAME, PRICE, PRICE_WHOLESALE, AMOUNT_STOCK1, AMOUNT_STOCK2, 
@@ -23,7 +24,8 @@
 
     }
         
-    function loadXLSData($conn) {
+    function loadXLSData() {
+        global $conn;
         require 'vendor/autoload.php';
         $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xls();
         $spreadsheet = $reader->load('priceList.xls');
@@ -51,7 +53,7 @@
                        array_push($rowArr, $value);
                     }
                 }
-                $i==0 ? $header = $rowArr : insertData($conn, $rowArr, $i);
+                $i==0 ? $header = $rowArr : insertData($rowArr, $i);
                 $i++;
 
             }
